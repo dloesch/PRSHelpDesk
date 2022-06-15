@@ -1,0 +1,14 @@
+Package: PRSHelpDesk
+Type: Package
+Title: Data prep, PRS estimation, and evaluation in cohorts with population structure
+Version: 0.1.0
+Author: Doug Loesch
+Maintainer: Doug Loesch <douglasloesch@gmail.com>
+Depends: R (>= 3.1.0)
+Imports: stats, DescTools, data.table (>= 1.11), tools, R.oo, R.methodsS3, R.utils, ggplot2, MASS, cluster, pROC, psych, rlang
+Description: PRSHelpDesk is a package that assists with data preparation for PRS analyses and contains several functions for evaluating PRS, performing linear combination of multiple PRS, and transforming a PRS to account for genetic ancestry. Also contains a function for estimation of a p+t PRS using a simple window-based pruning approach and a p-value threshold. Finally, includes functions for annotating a PRS with local ancestry information and estimating partial local ancestry specific PRS. Overall, this package was designed for use in cohorts with complex population structure (i.e. admixture). 
+    This package also depends on PLINK and bcftools. Both should be installed prior to use.  
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1.9001
