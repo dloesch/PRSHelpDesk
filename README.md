@@ -1,5 +1,5 @@
 # PRSHelpDesk
- R package for data prep, PRS etimation, and evaluation
+ R package for data prep, PRS estimation, and evaluation
 
 ## Description 
 PRSHelpDesk is a package that assists with data preparation for PRS analyses and contains several functions for evaluating PRS, performing linear combination of multiple PRS, and transforming a PRS to account for genetic ancestry. Also contains a function for estimation of a p+t PRS using a simple window-based pruning approach and a p-value threshold. Finally, includes functions for annotating a PRS with local ancestry information and estimating partial local ancestry specific PRS. Overall, this package was designed for use in cohorts with complex population structure (i.e. admixture).   
@@ -13,7 +13,7 @@ For data preparation, GWAS summary statistics and target genotype data is loaded
 remotes::install_github("dloesch/PRSHelpDesk")
 ```
 ## Input formats
-This package supports BCF, VCF, and PLINK (BED/BIM/FAM) files. PLINK and bcftools needs to be installed. 
+This package supports BCF, VCF, and PLINK (BED/BIM/FAM) files. PLINK and bcftools need to be installed. 
 
 ## References
 1. Márquez-Luna C, Loh PR, Price AL. Multi-ethnic polygenic risk scores improve risk prediction in diverse populations. Genet Epidemiol. 2017;41(8):811-823. doi:10.1002/gepi.22083
