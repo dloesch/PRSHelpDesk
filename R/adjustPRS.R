@@ -14,10 +14,12 @@
 #' @param pops Population labels for Ids. Defaults to NA. If rescaling, need to provide one of pops or cluster
 #' @param k Number of clusters. Defaults to 3.
 #' @export
-adjustPRS <- function(IDs, PRS, anc.mat, rescale=FALSE, cluster=FALSE, pops=NA, k=3){
+adjustPRS <- function(IDs, PRS, anc.mat, rescale=FALSE, cluster=FALSE, pops=NULL, k=3){
+
   dat <- data.frame(ID=IDs, PRS=PRS, POP=pops)
+  if(is.null(colnames(anc.mat))) colnames(anc.mat) <- paste0("X", 1:ncol(anc.mat))
   dat <- cbind(dat, anc.mat)
-  colnames(dat)[4:ncol(dat)] <- paste0("A", colnames(dat)[4:ncol(dat)])
+
   f=as.formula(paste("PRS~", paste(colnames(dat)[4:(ncol(dat)-1)], collapse = "+")))
   fit <- lm(f, data=dat)
   PRS_adj <- fit$residuals
@@ -25,7 +27,7 @@ adjustPRS <- function(IDs, PRS, anc.mat, rescale=FALSE, cluster=FALSE, pops=NA, 
   #now for rescaling
   PRS_rescaled <- rep(NA, times=nrow(dat))
   if(rescale == TRUE){
-    if(is.na(pops) & cluster == FALSE) stop("Either provide population labels or set cluster == TRUE")
+    if(is.null(pops) & cluster == FALSE) stop("Either provide population labels or set cluster == TRUE")
 
     if(length(unique(pops)) > 1){
       for(p in unique(pops)){

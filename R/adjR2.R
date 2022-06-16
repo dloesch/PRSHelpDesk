@@ -14,6 +14,7 @@
 #'
 adjR2 <- function(PRS, trait, cov, nPRS=1, prev=NA, binary=TRUE){
   dat <- data.frame(PRS=PRS, trait=trait, stringsAsFactors = FALSE)
+  if(is.null(colnames(cov))) colnames(cov) <- paste0("X", 1:ncol(cov))
   dat <- cbind(dat, cov)
 
   if(binary == TRUE){

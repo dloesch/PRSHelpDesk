@@ -22,6 +22,6 @@ simPRS <- function(N=500, binary=TRUE){
     AGE <- ifelse(trait > 1, AGE+3, ifelse(trait < 1, AGE-3, AGE))
   }
 
-  sim <- data.frame(ID=paste0("S", 1:N), TRAIT=trait, SEX=SEX, AGE=AGE, PRS=PRS, stringsAsFactors = FALSE)
+  sim <- data.frame(ID=paste0("S", 1:N), TRAIT=trait, PRS=PRS, SEX=SEX, AGE=AGE,stringsAsFactors = FALSE)
   return(sim)
 }

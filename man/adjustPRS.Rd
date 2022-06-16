@@ -10,7 +10,7 @@ adjustPRS(
   anc.mat,
   rescale = FALSE,
   cluster = FALSE,
-  pops = NA,
+  pops = NULL,
   k = 3
 )
 }

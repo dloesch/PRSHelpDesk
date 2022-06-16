@@ -31,13 +31,13 @@ concatGeno <- function(geno.list, prefix="output", file.type=c("vcf", "bed", "bc
   }
 
   if(file.type == "bed"){
-    system2("plink", paste("--merge-list", geno.list, "--make-bed --out", prefix))
+    system2(plink, paste("--merge-list", geno.list, "--make-bed --out", prefix))
   }else if(file.type == "vcf"){
     out.file <- paste0(prefix, ".vcf.gz")
-    system2("bcftools", paste("concat -f", geno.list, "-Oz -o", out.file))
+    system2(bcftools, paste("concat -f", geno.list, "-Oz -o", out.file))
   }else if(file.type == "bcf"){
     out.file <- paste0(prefix, ".bcf")
-    system2("bcftools", paste("concat -f", geno.list, "-Ob -o", out.file))
+    system2(bcftools, paste("concat -f", geno.list, "-Ob -o", out.file))
   }else{
     stop("Genotype files need to be bed, bcf, or vcf")
   }

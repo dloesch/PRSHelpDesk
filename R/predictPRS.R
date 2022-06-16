@@ -14,7 +14,7 @@
 #'
 predictPRS <- function(IDs, PRS, trait, folds, cov, binary=FALSE){
   dat <- data.frame(ID=IDs, PRS=PRS, trait=trait, folds=folds, stringsAsFactors = FALSE)
-
+  if(is.null(colnames(cov))) colnames(cov) <- paste0("X", 1:ncol(cov))
   dat <- cbind(dat, cov)
 
   f=as.formula(paste0("trait~PRS", "+", paste(colnames(dat)[5:ncol(dat)], collapse = "+")))
